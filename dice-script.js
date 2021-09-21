@@ -44,9 +44,27 @@ function show_result (value) {
 }
 
 
-// predictable example funtion
+// predictable example function
 function add (one, two, three) {
   return one + two + three;
+}
+
+
+// add all parameters, using array parameter and for loop
+function add_array (numbers_array) {
+  let sum = 0;
+  for (let index = 0; index < numbers_array.length; index++) {
+    const item = numbers_array[index];
+    sum += item; 
+  }
+
+  return sum;
+}
+
+
+// add all parameters, using advanced JS functions: rest parameter, .reduce method, and arrow function
+function add_all (...numbers) {
+  return numbers.reduce( (accum, current) => accum + current );
 }
 
 
