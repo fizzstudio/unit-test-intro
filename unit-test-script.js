@@ -3,8 +3,10 @@ window.addEventListener("load", init_tests);
 function init_tests () {
   console.log("init_tests");
   run_test( test_1 );
+  run_test( test__add );
   // run_test( test__show_result );
-  // run_test( test__get_random_number );
+  // run_test( test__get_random_number__str );
+  // run_test( test__get_random_number__1_6 );
 }
 
 function run_test ( test_name ) {
@@ -55,7 +57,7 @@ function test__show_result () {
 
 // testing `get_random_number` function
 // expect string argument to return 0 
-function test__get_random_number () {
+function test__get_random_number__str () {
   // test setup
   const test_param = "hello";
   const result_val = get_random_number(test_param);
@@ -76,6 +78,57 @@ function test__get_random_number () {
       result_val
     }
   );
+  
+  return test_result;
+}
+
+
+// testing `get_random_number` function
+// expect argments (1,6) argument to return number greater than or equal to 1, and less than or equal to 6 
+function test__get_random_number__1_6 () {
+  // test setup
+  const test_param_1 = 1;
+  const test_param_2 = 6;
+  const result_val = get_random_number(test_param_1, test_param_2);
+
+  let test_result = "fail";
+  // test condition
+  const expected_val_1 = 1;
+  const expected_val_2 = 6;
+  if (result_val >= expected_val_1
+    && result_val <= expected_val_2) {
+    test_result = "pass";
+  }
+
+  // test expectations
+  console.log(`${arguments.callee.name} status: ${test_result}`, 
+    {
+      "_function": get_random_number.name,
+      test_param_1,
+      test_param_2,
+      expected_val_1,
+      expected_val_2,
+      result_val
+    }
+  );
+  
+  return test_result;
+}
+
+
+// testing `add` function
+// expect (1,2,3) argument to return 6 
+function test__add () {
+  // test setup
+  const params = [1, 2, 3];
+  const result_val = add(...params);
+
+  let test_result = "fail";
+  // test condition
+  const expected_val = 6;
+  if (result_val === expected_val) {
+    test_result = "pass";
+  }
   
   return test_result;
 }

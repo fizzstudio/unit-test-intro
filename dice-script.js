@@ -22,17 +22,70 @@ function roll_die (event) {
 }
 
 function get_random_number (min, max) {
-  // min = Math.ceil(min);
-  // max = Math.floor(max);
   const range = max - min;
-  // includes minimum and maximum
-  return Math.floor(Math.random() * (range + 1) + min); 
-}
+  console.log("range:", range);
+
+  const random_seed = Math.random();
+  console.log("random_seed:", random_seed);
+
+  const random_number = random_seed * (range + 1) + min;
+  console.log("random_number:", random_number);
+
+  const random_integer = Math.floor(random_number);
+  console.log("random_integer:", random_integer);
+
+  return random_integer;
+
+  // return Math.floor(Math.random() * (range + 1) + min);
+} 
 
 function show_result (value) {
   result_el.textContent = value;
 }
 
+
+// predictable example funtion
+function add (one, two, three) {
+  return one + two + three;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/////////////////////////////////////////////////////////////////////
+
+// function get_random_number (min, max) {
+//   // min = Math.ceil(min);
+//   // max = Math.floor(max);
+//   const range = max - min;
+//   // includes minimum and maximum
+//   return Math.floor(Math.random() * (range + 1) + min); 
+// }
 
 
 // get_random_number ( min, max ) {
@@ -45,3 +98,24 @@ function show_result (value) {
 //     return parseInt((this.random_seed/2147483647) * (max - min) + min);
 //   }
 // }
+
+
+// function get_random_number (min, max) {
+//   const range = max - min;
+//   console.log("range:", range);
+
+//   const random_seed = Math.random();
+//   console.log("random_seed:", random_seed);
+
+//   const random_number = random_seed * (range + 1) + min;
+//   console.log("random_number:", random_number);
+
+//   const random_integer = Math.floor(random_number);
+//   console.log("random_integer:", random_integer);
+
+//   return random_integer;
+
+//   // return Math.floor(Math.random() * (range + 1) + min);
+// } 
+
+
